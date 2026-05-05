@@ -7,6 +7,20 @@
     <title>Habit Tracker</title>
 </head>
 <body>
+
+    <input type="text" id="nameInput" placeholder="habitName">
+    <input type="text" id="typeInput" placeholder="habitType">
+
+    <select id="category">
+        <option value="Müzik">Müzik</option>
+        <option value="Kitap">Kitap</option>
+        <option value="orgu">Örgü</option>
+        <option value="Hepsi">Hepsi</option>
+    </select>
+
+    <button onclick="addHabit()">Hobini Ekle</button>
+
+    <ul id="habitList"></ul>
     
 
     <script src="/js/main6.js"></script>
