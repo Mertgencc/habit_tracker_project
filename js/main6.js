@@ -32,9 +32,15 @@ function addHabit() {
 
   if (name === "" || type === "") return;
 
-  if (editID){
-    const item = habit.find(h => h.id === editID());
-  }else{
+  if (editID) {
+    const item = habit.find((h) => h.id === editID);
+
+    item.name = name;
+    item.type = type;
+    item.category = category;
+
+    editID = null;
+  } else {
     const newItem = {
       id: generateID(),
       name: name,
@@ -68,7 +74,8 @@ function renderHabit() {
   const completedHabit = habit.filter((item) => item.completed).length;
   const totalHabit = habit.length;
 
-  document.getElementById("progressText").textContent = completedHabit + " / " + totalHabit + " tamamlandı";
+  document.getElementById("progressText").textContent =
+    completedHabit + " / " + totalHabit + " tamamlandı";
 
   filteredHabit.forEach(function (item) {
     const li = document.createElement("li");
@@ -103,13 +110,13 @@ function renderHabit() {
     const btn2 = document.createElement("button");
     btn2.textContent = "Düzenle";
 
-    btn2.onclick = function(){
-        document.getElementById("nameInput").value = item.name;
-        document.getElementById("typeInput").value = item.type;
-        document.getElementById("category").value = item.category;
+    btn2.onclick = function () {
+      document.getElementById("nameInput").value = item.name;
+      document.getElementById("typeInput").value = item.type;
+      document.getElementById("category").value = item.category;
 
-        editID = item.id;
-    }
+      editID = item.id;
+    };
 
     li.appendChild(checkbox);
     li.appendChild(btn);
