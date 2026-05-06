@@ -28,7 +28,7 @@ function addHabit(){
     type = typeInput.value;
     category = categoryInput.value;
 
-    if(name === " " || type === " ");
+    if(name === " " || type === " ") return;
 
     const newItem = {
         id:generateID(),
@@ -48,3 +48,45 @@ function addHabit(){
 
 }
 
+function renderHabit(){
+    const list = document.getElementById("habitList");
+    list.innerHTML = "";
+
+    let filteredHabit = habit;
+
+    if(selectedCategory !== "Hepsi"){
+        filteredHabit = habit.filter(item => item.category === selectedCategory);
+    }
+
+    filteredHabit.forEach(function(item){
+        const li = document.createElement("li");
+        li.textContent = item.name + " " + item.type + " " + item.category;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = item.completed;
+
+        checkbox.onchange = function(){
+            item.completed = !item.completed;
+            localStorage.setItem("habit", JSON.stringify(habit));
+            renderHabit();
+        }
+
+        if(item.completed){
+            li.style.textDecoration = "line-through";
+        }
+
+        const btn = document.createElement("button");
+        btn.textContent = "Sil";
+
+        btn.onclick = function(){
+            filteredHabit = habit.filter((h) => h.id !== item.id);
+            localStorage.setItem("habit", JSON.stringify(habit));
+            renderHabit();
+        }
+
+        li.appendChild(checkbox);
+        li.appendChild(btn);
+        list.appendChild(li);
+    })
+}
