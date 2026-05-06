@@ -32,7 +32,9 @@ function addHabit() {
 
   if (name === "" || type === "") return;
 
-
+  if (editID){
+    const item = habit.find(h => h.id === editID());
+  }else{
     const newItem = {
       id: generateID(),
       name: name,
@@ -42,6 +44,7 @@ function addHabit() {
     };
 
     habit.push(newItem);
+  }
 
   localStorage.setItem("habit", JSON.stringify(habit));
 
@@ -60,7 +63,6 @@ function renderHabit() {
   if (selectedCategory !== "Hepsi") {
     filteredHabit = habit.filter((item) => item.category === selectedCategory);
   }
-
 
   filteredHabit.forEach(function (item) {
     const li = document.createElement("li");
@@ -88,6 +90,9 @@ function renderHabit() {
       localStorage.setItem("habit", JSON.stringify(habit));
       renderHabit();
     };
+
+    const btn2 = document.createElement("button");
+    btn2.textContent = "Düzenle";
 
     li.appendChild(checkbox);
     li.appendChild(btn);
