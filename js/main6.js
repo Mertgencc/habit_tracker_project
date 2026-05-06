@@ -64,6 +64,12 @@ function renderHabit() {
     filteredHabit = habit.filter((item) => item.category === selectedCategory);
   }
 
+  // burası kaçta kaç görev tamamlandı sayısını tutar
+  const completedHabit = habit.filter((item) => item.completed).length;
+  const totalHabit = habit.length;
+
+  document.getElementById("progressText").textContent = completedHabit + " / " + totalHabit + " tamamlandı";
+
   filteredHabit.forEach(function (item) {
     const li = document.createElement("li");
     li.textContent = item.name + " " + item.type + " " + item.category;
