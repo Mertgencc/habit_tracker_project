@@ -38,12 +38,13 @@ function addHabit(){
         completed: false,
     }
 
-    habir.push(newItem);
+    habit.push(newItem);
     localStorage.setItem("habit", JSON.stringify(habit));
 
     renderHabit();
 
-    nameInput.value = "";
-    typeInput.value = "";
-    
+    nameInput = "";
+    typeInput = "";
+
 }
+
