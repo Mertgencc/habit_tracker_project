@@ -100,8 +100,20 @@ function renderHabit() {
     const btn2 = document.createElement("button");
     btn2.textContent = "Düzenle";
 
+    const btn2 = document.createElement("button");
+    btn2.textContent = "Düzenle";
+
+    btn2.onclick = function(){
+        document.getElementById("nameInput").value = item.name;
+        document.getElementById("typeInput").value = item.type;
+        document.getElementById("category").value = item.category;
+
+        editID = item.id;
+    }
+
     li.appendChild(checkbox);
     li.appendChild(btn);
+    li.appendChild(btn2);
     list.appendChild(li);
   });
 }
