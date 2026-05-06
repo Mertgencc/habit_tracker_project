@@ -70,12 +70,11 @@ function renderHabit() {
     filteredHabit = habit.filter((item) => item.category === selectedCategory);
   }
 
-  // burası kaçta kaç görev tamamlandı sayısını tutar
-  const completedHabit = habit.filter((item) => item.completed).length;
-  const totalHabit = habit.length;
+  const completedCount = habit.filter((item) => item.completed).length;
+  const totalCount = habit.length;
 
   document.getElementById("progressText").textContent =
-    completedHabit + " / " + totalHabit + " tamamlandı";
+    completedCount + " / " + totalCount + " tamamlandı";
 
   filteredHabit.forEach(function (item) {
     const li = document.createElement("li");
@@ -107,9 +106,6 @@ function renderHabit() {
     const btn2 = document.createElement("button");
     btn2.textContent = "Düzenle";
 
-    const btn2 = document.createElement("button");
-    btn2.textContent = "Düzenle";
-
     btn2.onclick = function () {
       document.getElementById("nameInput").value = item.name;
       document.getElementById("typeInput").value = item.type;
@@ -120,7 +116,7 @@ function renderHabit() {
 
     li.appendChild(checkbox);
     li.appendChild(btn);
-    li.appendChild(btn2);
+    li.appendChild(btn2); 
     list.appendChild(li);
   });
 }

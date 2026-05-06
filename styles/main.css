@@ -1,0 +1,116 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* SAYFA ORTALAMA */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e5e7eb;
+  padding: 20px;
+}
+
+/* ANA KONTEYNER GİBİ DAVRAN */
+body {
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* BAŞLIK */
+#progressText {
+  font-size: 18px;
+  font-weight: bold;
+  color: #60a5fa;
+  text-align: center;
+}
+
+/* INPUT + SELECT + BUTTON */
+input,
+select,
+button {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* INPUT */
+input,
+select {
+  background: #0f172a;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* BUTTON */
+button {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+/* LİSTE */
+#habitList {
+  list-style: none;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ITEM */
+#habitList li {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column; /* 🔥 HER ŞEY ALT ALTA */
+  gap: 8px;
+}
+
+/* TEXT */
+#habitList li {
+  font-size: 14px;
+}
+
+/* CHECKBOX */
+#habitList input[type="checkbox"] {
+  align-self: flex-start;
+  transform: scale(1.2);
+}
+
+/* BUTTONLAR */
+#habitList button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* SİL */
+#habitList button:first-of-type {
+  background: #ef4444;
+}
+
+/* DÜZENLE */
+#habitList button:last-of-type {
+  background: #22c55e;
+}
